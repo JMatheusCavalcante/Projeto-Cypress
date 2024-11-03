@@ -21,6 +21,7 @@ Este projeto realiza testes automatizados em um carrinho de compras na aplicaç�
 ## Testes Realizados
  - Adição de produtos ao carrinho.
  - Verificação da visibilidade dos produtos no carrinho após a adição.
+ - Navega para area de 'Contact us' e efetua preenchimento de formulário.
  
  ## Futuras Melhorias
  - Adicionar teste de login.
