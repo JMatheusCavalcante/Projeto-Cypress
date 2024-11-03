@@ -1,6 +1,8 @@
 describe('Teste de Carrinho de Compras', () => {
     let produtos = []; // Array para armazenar os nomes dos produtos
 
+    
+
     // Função que adiciona um produto ao carrinho.
     const AdicionarProdutoAoCarrinho = (index) => {
         cy.get('.productinfo.text-center').eq(index).within(() => {
@@ -19,6 +21,12 @@ describe('Teste de Carrinho de Compras', () => {
         cy.log('Produto adicionado ao carrinho e pop-up fechado.');
     };
 
+    beforeEach(() => {
+        // Navega até a página para os testes.
+        cy.visit('https://automationexercise.com/');
+        cy.log('Navegando para a página principal.');
+    });
+    
     it('Teste de Adição de produtos ao Carrinho', () => {
         // Navega até a página para os testes.
         cy.visit('https://automationexercise.com/');
@@ -45,6 +53,25 @@ describe('Teste de Carrinho de Compras', () => {
             cy.log(`O produto "${produto}" está visível no carrinho.`); 
         });
     });
+
+    
         
+    });
+
+    it.only('Preenchendo Formulário', () => {
+         
+    
+         cy.contains('Contact us').should('be.visible').click();
+        
+        
+         cy.get('[data-qa="name"]').type('Hello World!');
+         cy.get('[data-qa="email"]').type('email@teste.com');
+         cy.get('[data-qa="subject"]').type('Assunto Teste');
+         cy.get('[data-qa="message"]').type('Teste de preenchimento de formulário. - Teste de preenchimento de formulário.');
+
+         cy.get('[data-qa="submit-button"]').click();
+
+         cy.get('#form-section > .btn').click();
+
     });
 });
